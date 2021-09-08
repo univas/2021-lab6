@@ -1,7 +1,7 @@
 const customerService = require('../service/customer.service')
 
 const listAll = (req, res) => {
-  res.send(customerService.listAll)
+  res.send(customerService.listAll())
 }
 
 const create = (req, res) => {
