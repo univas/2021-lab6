@@ -10,17 +10,36 @@ const create = (req, res) => {
 const listAll = (req, res) => res.send(subjectService.listAll())
 
 const update = (req, res) => {
-  subjectService.update(req.params.id, req.body)
-  res.send('Subject updated successfully!')
+  const subjectId = req.params.id
+
+  const subject = subjectService.getById(subjectId)
+  if (subject) {
+    subjectService.update(req.params.id, req.body)
+    res.send('Subject updated successfully!')
+  } else {
+    res.status(404).send('Subject not found')
+  }
 }
 
 const remove = (req, res) => {
-  subjectService.remove(req.params.id)
-  res.send('Subject removed successfully!');
+  const subjectId = req.params.id
+
+  const subject = subjectService.getById(subjectId)
+  if (subject) {
+    subjectService.remove(req.params.id)
+    res.send('Subject removed successfully!');
+  } else {
+    res.status(404).send('Subject not found')
+  }
 }
 
 const getById = (req, res) => {
-  res.send(subjectService.getById(req.params.id))
+  const subject = subjectService.getById(req.params.id)
+  if (subject) {
+    res.send(subject)
+  } else {
+    res.status(404).send('Subject not found')
+  }
 }
 
 const validateFields = (res, subject) => {

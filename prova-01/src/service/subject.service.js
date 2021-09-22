@@ -36,6 +36,7 @@ const getById = subjectId => {
   if (subjectIndex > -1) {
     return database[subjectIndex]
   }
+  return null
 }
 
 module.exports = {
