@@ -5,3 +5,10 @@ create table customer(
   email varchar(100) not null
 );
 
+create table product(
+  id serial primary key,
+  nome varchar(100) not null,
+  valor numeric(6,2) not null,
+  quantidade int not null
+);
+
