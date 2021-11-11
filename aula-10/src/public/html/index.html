@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <link href="../css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="nickname_container" id="nick">
+      <form id="submit" action="">
+        <label>Nome de usuário:</label>
+        <input type="text" id="nickname" autofocus>
+      </form>
+    </div>
+
+    <div id="chat" hidden>
+      <div class="menu">
+        <div class="name" id="name"></div>
+        <div class="last" id="time"></div>
+      </div>
+
+      <ol id="chatMessage" class="chat"></ol>
+
+      <form id="form" action="">
+        <input class="textarea" type="text" placeholder="Type here!" id="textarea" />
+      </form>
+    </div>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="../js/index.js"></script>
+  </body>
+</html>
